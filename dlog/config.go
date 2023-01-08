@@ -50,10 +50,10 @@ func Init(config LogConfig) error {
 	return initFromConfig(&logging, sysback, fileback, config)
 }
 
-func NewLoggerFromConfig(config LogConfig) (Logger, error) {
-	var log Logger
+func NewLoggerFromConfig(config LogConfig) (*Logger, error) {
+	var logger *Logger
 	var fb *FileBackend = nil
 	var sb *syslogBackend = nil
-	err := initFromConfig(&log, sb, fb, config)
-	return log, err
+	err := initFromConfig(logger, sb, fb, config)
+	return logger, err
 }
